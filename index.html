@@ -49,12 +49,20 @@
             
                 address = addrs[0];
                 city = addrs[1].replace(/ /g, '');
-                zip = addrs[2].split(" ")[1];
-                if(zip.match(/^\d{5}$/g)) {
-                  
-                } else {
-                  console.log("Recorded zip code isn't actually a zip code.");
-                }
+
+                // Find the zip by doing a regex check on possible candidates.
+                var prezip = addrs[2].split(" ");
+                for(var i = 0; i < prezip.length; i++) {
+		  if(prezip[i].match(/^\d{5}$/g)) {
+		    zip = prezip[i];
+		    break;
+		  }
+		}
+
+		if(zip === undefined) {
+         	    console.log("No zips found in reverse geocode.");
+		}
+                
             
             
             
