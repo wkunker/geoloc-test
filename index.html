@@ -31,7 +31,9 @@
           position.coords.longitude
         );
         geo();
-      });
+      },
+      function(){},
+      {enableHighAccuracy: true});
 
       var geo = function() {
         geocoder.geocode({'latLng': latlng}, function(results, status) {
