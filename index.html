@@ -50,6 +50,11 @@
                 address = addrs[0];
                 city = addrs[1].replace(/ /g, '');
                 zip = addrs[2].split(" ")[1];
+                if(zip.match(/^\d{5}$/g)) {
+                  
+                } else {
+                  console.log("Recorded zip code isn't actually a zip code.");
+                }
             
             
             
